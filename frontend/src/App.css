@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f4f7fc;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+/* Heading */
+
+.title {
+  text-align: center;
+  color: #1e293b;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* Search Box */
+
+.search-box {
+  margin-bottom: 20px;
+}
+
+.search-box input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: #2563eb;
+}
+
+/* Form */
+
+.form-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+}
+
+.form-card input {
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Table Card */
+
+.table-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table thead {
+  background: #2563eb;
+  color: white;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.edit-btn {
+  background: #f59e0b;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin-right: 5px;
+}
+
+.delete-btn {
+  background: #dc2626;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+/* Stats Cards */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.card-box {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.card-box h3 {
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.card-box p {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Responsive */
+
+@media (max-width:768px) {
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}
