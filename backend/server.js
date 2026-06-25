@@ -21,6 +21,9 @@ let employees = [
   }
 ];
 
+app.get("/", (req, res) => {
+  res.send("Employee Management System Backend Running");
+});
 
 // GET
 

@@ -74,6 +74,7 @@ function App() {
 
         <div className="card-box">
           <h3>Total Salary</h3>
+
           <p>
             ₹
             {employees.reduce(
@@ -85,6 +86,7 @@ function App() {
 
         <div className="card-box">
           <h3>Departments</h3>
+
           <p>
             {new Set(employees.map(emp => emp.department)).size}
           </p>

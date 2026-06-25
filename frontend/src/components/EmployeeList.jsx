@@ -1,6 +1,8 @@
 function EmployeeList({ employees, deleteEmployee, editEmployee }) {
   return (
+
     <table className="table table-bordered">
+      
       <thead>
         <tr>
           <th>Name</th>
