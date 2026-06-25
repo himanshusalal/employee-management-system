@@ -21,10 +21,11 @@ let employees = [
   }
 ];
 
-app.get("/", (req, res) => {
-  res.send("Employee Management System Backend Running");
-});
 
+
+app.get("/employees", (req, res) => {
+  res.json(employees);
+});
 // GET
 
 app.get("/employees", (req, res) => {
