@@ -21,6 +21,9 @@ let employees = [
   }
 ];
 
+app.get("/", (req, res) => {
+  res.send("Employee API is Running...");
+});
 
 
 app.get("/employees", (req, res) => {
@@ -28,13 +31,9 @@ app.get("/employees", (req, res) => {
 });
 // GET
 
-app.get("/employees", (req, res) => {
-  res.json(employees);
-});
 
 
 // POST
-
 app.post("/employees", (req, res) => {
   const employee = {
     id: Date.now(),
@@ -74,14 +73,16 @@ app.delete("/employees/:id", (req, res) => {
   });
 });
 
+
+//const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => {
+//   console.log(`Server Running On Port ${PORT}`);
+// });
+
+
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server Running On Port ${PORT}`);
 });
-
-
-
-// app.listen(5000, () => {
-//   console.log("Server Running On Port 5000");
-// });
