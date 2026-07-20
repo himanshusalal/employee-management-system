@@ -1,25 +1,30 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-
-import API_URL from "../api";
+import API from "../api";
 
 function EmployeeForm({
   fetchEmployees,
   editingEmployee,
-  setEditingEmployee
+  setEditingEmployee,
 }) {
   const [form, setForm] = useState({
     name: "",
+    email: "",
     department: "",
     salary: "",
+    designation: "",
   });
 
   useEffect(() => {
     if (editingEmployee) {
-      setForm(editingEmployee);
+      setForm({
+        name: editingEmployee.name || "",
+        email: editingEmployee.email || "",
+        department: editingEmployee.department || "",
+        salary: editingEmployee.salary || "",
+        designation: editingEmployee.designation || "",
+      });
     }
   }, [editingEmployee]);
-
 
   const handleChange = (e) => {
     setForm({
@@ -28,89 +33,130 @@ function EmployeeForm({
     });
   };
 
+  const resetForm = () => {
+    setForm({
+      name: "",
+      email: "",
+      department: "",
+      salary: "",
+      designation: "",
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       if (editingEmployee) {
-        // UPDATE
-      await axios.put(
-  `${API_URL}/employees/${editingEmployee.id}`,
-  form
-);
-        // await axios.put(
-        //   `http://localhost:5000/employees/${editingEmployee.id}`,
-        //   form
-        // );
+        // Update Employee
+        await API.put(
+          `/api/employees/${editingEmployee._id}`,
+          form
+        );
+
+        alert("Employee Updated Successfully");
 
         setEditingEmployee(null);
+
       } else {
+        // Add Employee
+        await API.post(
+          "/api/employees",
+          form
+        );
 
-        // ADD
-        await axios.post(
-  `${API_URL}/employees`,
-  form
-);
-
-        // await axios.post(
-        //   "http://localhost:5000/employees",
-        //   form
-        // );
+        alert("Employee Added Successfully");
       }
 
-      setForm({
-        name: "",
-        department: "",
-        salary: "",
-      });
+      resetForm();
 
       fetchEmployees();
 
     } catch (error) {
       console.log(error);
+
+      alert(
+        error.response?.data?.message ||
+        error.message ||
+        "Something went wrong"
+      );
     }
   };
 
+  const handleCancel = () => {
+    setEditingEmployee(null);
+    resetForm();
+  };
+
   return (
-    <div className="mb-4">
+    <form
+      className="card p-4 shadow mb-4"
+      onSubmit={handleSubmit}
+    >
+      <h3 className="mb-3">
+        {editingEmployee
+          ? "Update Employee"
+          : "Add Employee"}
+      </h3>
 
       <input
         type="text"
-        className="form-control mb-2"
         name="name"
+        className="form-control mb-3"
         placeholder="Employee Name"
         value={form.name}
         onChange={handleChange}
+        required
+      />
+
+      <input
+        type="email"
+        name="email"
+        className="form-control mb-3"
+        placeholder="Employee Email"
+        value={form.email}
+        onChange={handleChange}
+        required
       />
 
       <input
         type="text"
-        className="form-control mb-2"
         name="department"
+        className="form-control mb-3"
         placeholder="Department"
         value={form.department}
         onChange={handleChange}
+        required
       />
 
       <input
         type="number"
-        className="form-control mb-2"
         name="salary"
+        className="form-control mb-3"
         placeholder="Salary"
         value={form.salary}
         onChange={handleChange}
+        required
+      />
+
+      <input
+        type="text"
+        name="designation"
+        className="form-control mb-3"
+        placeholder="Designation"
+        value={form.designation}
+        onChange={handleChange}
+        required
       />
 
       <button
+        type="submit"
         className={
           editingEmployee
             ? "btn btn-warning"
             : "btn btn-primary"
         }
-        onClick={handleSubmit}
       >
-        
         {editingEmployee
           ? "Update Employee"
           : "Add Employee"}
@@ -118,22 +164,14 @@ function EmployeeForm({
 
       {editingEmployee && (
         <button
-          className="btn btn-secondary ms-2"
-          onClick={() => {
-            setEditingEmployee(null);
-
-            setForm({
-              name: "",
-              department: "",
-              salary: "",
-            });
-          }}
+          type="button"
+          className="btn btn-secondary mt-2"
+          onClick={handleCancel}
         >
           Cancel
         </button>
       )}
-
-    </div>
+    </form>
   );
 }
 

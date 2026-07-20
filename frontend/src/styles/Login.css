@@ -1,0 +1,710 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+/* Login Background */
+
+.auth-container{
+
+    width:100%;
+    min-height:100vh;
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    padding:20px;
+
+
+
+    background:
+
+    linear-gradient(
+        rgba(15,23,42,0.65),
+        rgba(15,23,42,0.65)
+    ),
+
+
+    url("../assets/office-bg.jpg");
+
+
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+
+}
+
+
+
+
+/* Login Card */
+
+
+.auth-card{
+
+
+    width:420px;
+
+
+    padding:40px;
+
+
+    border-radius:20px;
+
+
+
+    background:
+
+    rgba(255,255,255,0.12);
+
+
+
+    backdrop-filter:blur(15px);
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,0.25);
+
+
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,0.35);
+
+
+
+}
+
+
+
+
+
+/* Logo */
+
+
+.logo{
+
+
+    text-align:center;
+
+
+    font-size:60px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+
+
+/* Heading */
+
+
+.auth-card h2{
+
+
+    text-align:center;
+
+
+    color:white;
+
+
+    font-size:34px;
+
+
+    font-weight:700;
+
+
+    margin-bottom:10px;
+
+
+
+}
+
+
+
+
+
+/* Subtitle */
+
+
+.subtitle{
+
+
+    text-align:center;
+
+
+    color:#e2e8f0;
+
+
+    font-size:14px;
+
+
+    line-height:24px;
+
+
+    margin-bottom:30px;
+
+
+
+}
+
+
+
+
+
+/* Input */
+
+
+.auth-card input{
+
+
+    width:100%;
+
+
+    height:55px;
+
+
+    margin-bottom:18px;
+
+
+    padding:0 18px;
+
+
+
+    border:none;
+
+
+    outline:none;
+
+
+
+    border-radius:10px;
+
+
+
+    background:
+
+    rgba(255,255,255,0.15);
+
+
+
+    color:white;
+
+
+    font-size:15px;
+
+
+
+}
+
+
+
+
+
+.auth-card input::placeholder{
+
+
+    color:#dbeafe;
+
+
+
+}
+
+
+
+
+
+.auth-card input:focus{
+
+
+    background:
+
+    rgba(255,255,255,0.25);
+
+
+
+    border:
+
+    1px solid rgba(255,255,255,0.3);
+
+
+
+}
+
+
+
+
+
+/* Remember + Forgot Password */
+
+
+.options{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+
+    color:white;
+
+
+    font-size:14px;
+
+
+    margin-bottom:25px;
+
+
+
+}
+
+
+
+
+.options label{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:8px;
+
+
+
+}
+
+
+
+
+.options input[type="checkbox"]{
+
+
+    width:16px;
+
+
+    height:16px;
+
+
+}
+
+
+
+
+.options a{
+
+
+    color:#93c5fd;
+
+
+    text-decoration:none;
+
+
+
+}
+
+
+
+.options a:hover{
+
+
+    text-decoration:underline;
+
+
+
+}
+
+
+
+
+/* Button */
+
+
+.auth-card button{
+
+
+    width:100%;
+
+
+
+    height:55px;
+
+
+
+    border:none;
+
+
+
+    border-radius:10px;
+
+
+
+    background:#2563eb;
+
+
+
+    color:white;
+
+
+
+    font-size:17px;
+
+
+
+    font-weight:600;
+
+
+
+    cursor:pointer;
+
+
+
+    transition:0.3s;
+
+
+
+}
+
+
+
+
+
+.auth-card button:hover{
+
+
+    background:#1d4ed8;
+
+
+    transform:translateY(-2px);
+
+
+
+}
+
+
+
+
+
+/* Divider */
+
+
+.divider{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+
+    color:white;
+
+
+
+    margin:25px 0;
+
+
+
+}
+
+
+
+
+.divider::before,
+.divider::after{
+
+
+    content:"";
+
+
+    flex:1;
+
+
+    height:1px;
+
+
+
+    background:
+
+    rgba(255,255,255,0.3);
+
+
+
+    margin:0 10px;
+
+
+
+}
+
+
+
+
+
+/* Footer */
+
+
+.auth-footer{
+
+
+    text-align:center;
+
+
+    color:white;
+
+
+    font-size:14px;
+
+
+
+}
+
+
+
+
+.auth-footer a{
+
+
+    color:#93c5fd;
+
+
+    margin-left:5px;
+
+
+    text-decoration:none;
+
+
+    font-weight:600;
+
+
+
+}
+
+
+
+.auth-footer a:hover{
+
+
+    text-decoration:underline;
+
+
+
+}
+
+
+
+
+
+/* Mobile Responsive */
+
+
+@media(max-width:480px){
+
+
+.auth-card{
+
+
+    width:100%;
+
+
+    padding:28px;
+
+
+}
+
+
+
+.auth-card h2{
+
+
+    font-size:28px;
+
+
+
+}
+
+
+
+.logo{
+
+
+    font-size:48px;
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+.auth-card{
+
+    animation: slideUp .7s ease;
+
+}
+
+
+
+.password-box{
+
+    position:relative;
+
+}
+
+
+
+.password-box input{
+
+    padding-right:55px;
+
+}
+
+
+
+.eye-btn{
+
+    position:absolute;
+
+    right:15px;
+
+    top:10px;
+
+
+    width:35px;
+
+    height:35px;
+
+
+    border:none !important;
+
+
+    background:transparent !important;
+
+
+    font-size:20px;
+
+
+    cursor:pointer;
+
+
+    padding:0;
+
+
+}
+
+
+
+.password-box{
+    position:relative;
+    width:100%;
+}
+
+
+.password-box input{
+
+    width:100%;
+
+    padding-right:70px;
+
+}
+
+
+.password-box{
+    position:relative;
+    width:100%;
+}
+
+
+.password-box input{
+    width:100%;
+    height:55px;
+    padding-right:70px;
+}
+
+
+
+.show-btn{
+
+    position:absolute;
+
+    right:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+
+    width:auto !important;
+
+    height:auto !important;
+
+
+    border:none !important;
+
+    background:transparent !important;
+
+
+    color:#93c5fd;
+
+
+    font-size:14px;
+
+    font-weight:600;
+
+
+    cursor:pointer;
+
+
+    padding:0;
+
+
+    line-height:1;
+
+
+}
+
+
+
+.show-btn:hover{
+
+    color:white;
+
+    background:transparent !important;
+
+}
