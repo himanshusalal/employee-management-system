@@ -13,17 +13,14 @@ connectDB();
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://employee-management-system-tzif.vercel.app",
-   "https://employee-management-system-tzif-l1oz2q37x.vercel.app",
-];
-
 app.use(
   cors({
-    
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (
+        !origin ||
+        origin === "http://localhost:5173" ||
+        origin.endsWith(".vercel.app")
+      ) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
@@ -32,7 +29,6 @@ app.use(
     credentials: true,
   })
 );
-
 
 app.use(express.json());
 
