@@ -708,3 +708,58 @@
     background:transparent !important;
 
 }
+
+
+
+
+.stat-card{
+    border-radius:15px;
+    transition:0.3s;
+    color:white;
+}
+
+.stat-card:hover{
+    transform:translateY(-5px);
+}
+
+.employee-card{
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+}
+
+.salary-card{
+    background:linear-gradient(135deg,#16a34a,#15803d);
+}
+
+.department-card{
+    background:linear-gradient(135deg,#f59e0b,#d97706);
+}
+
+.stat-card h5{
+    font-size:18px;
+    font-weight:600;
+}
+
+.stat-card h2{
+    font-size:35px;
+    font-weight:bold;
+}
+
+
+
+.dashboard-title {
+  background: linear-gradient(135deg, #c52356, #697ec2);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 12px;
+  display: inline-block;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+
+
+.Navbaar{
+    background-color: brown;
+    width: 100px;
+    height: 100px;
+}
