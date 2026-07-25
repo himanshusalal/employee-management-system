@@ -169,6 +169,7 @@ function Login() {
     placeholder="Password"
     value={formData.password}
     onChange={handleChange}
+      autoComplete="current-password"
     required
   />
 

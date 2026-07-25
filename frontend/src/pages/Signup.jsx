@@ -79,17 +79,21 @@ function Signup() {
             placeholder="📧 Email Address"
             value={formData.email}
             onChange={handleChange}
+             autoComplete="email"
             required
           />
 
+
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             name="password"
             placeholder="🔒 Password"
             value={formData.password}
             onChange={handleChange}
+             autoComplete="new-password"
             required
           />
+
 
           <input
             type="password"
