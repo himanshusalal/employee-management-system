@@ -16,6 +16,7 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://employee-management-system-tzif.vercel.app",
+   "https://employee-management-system-tzif-l1oz2q37x.vercel.app",
 ];
 
 app.use(
@@ -32,8 +33,6 @@ app.use(
   })
 );
 
-
-app.options("*", cors());
 
 app.use(express.json());
 
