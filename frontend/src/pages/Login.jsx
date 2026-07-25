@@ -164,7 +164,7 @@ function Login() {
 <div className="password-box">
 
   <input
-    type={showPassword ? "text" : "password"}
+     type={showPassword ? "text" : "password"}
     name="password"
     placeholder="Password"
     value={formData.password}

@@ -8,11 +8,13 @@ function Signup() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
+ 
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+   const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -83,17 +85,25 @@ function Signup() {
             required
           />
 
+<div className="password-box">
+  <input
+    type={showPassword ? "text" : "password"}
+    name="password"
+    placeholder="🔒 Password"
+    value={formData.password}
+    onChange={handleChange}
+    autoComplete="new-password"
+    required
+  />
 
-          <input
-            type={showPassword ? "text" : "password"}
-            name="password"
-            placeholder="🔒 Password"
-            value={formData.password}
-            onChange={handleChange}
-             autoComplete="new-password"
-            required
-          />
-
+  <button
+    type="button"
+    className="show-btn"
+    onClick={() => setShowPassword(!showPassword)}
+  >
+    {showPassword ? "Hide" : "Show"}
+  </button>
+</div>
 
           <input
             type="password"
@@ -101,6 +111,7 @@ function Signup() {
             placeholder="🔐 Confirm Password"
             value={formData.confirmPassword}
             onChange={handleChange}
+             autoComplete="new-password"
             required
           />
 
