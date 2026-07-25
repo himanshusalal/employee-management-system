@@ -15,17 +15,25 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
-   "https://employee-management-system-i94v.vercel.app"
+  "https://employee-management-system-tzif.vercel.app",
 ];
 
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+app.use(
+  cors({
+    
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 
+app.options("*", cors());
 
 app.use(express.json());
 
