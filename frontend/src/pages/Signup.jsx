@@ -81,7 +81,7 @@ function Signup() {
             placeholder="📧 Email Address"
             value={formData.email}
             onChange={handleChange}
-             autoComplete="email"
+             autoComplete="username"
             required
           />
 
