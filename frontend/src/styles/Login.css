@@ -165,11 +165,7 @@
 
     margin-bottom:30px;
 
-
-
 }
-
-
 
 
 
@@ -219,20 +215,10 @@
 }
 
 
-
-
-
 .auth-card input::placeholder{
-
-
     color:#dbeafe;
 
-
-
 }
-
-
-
 
 
 .auth-card input:focus{
@@ -248,19 +234,13 @@
 
     1px solid rgba(255,255,255,0.3);
 
-
-
 }
-
-
-
 
 
 /* Remember + Forgot Password */
 
 
 .options{
-
 
     display:flex;
 
@@ -756,10 +736,3 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-
-
-.Navbaar{
-    background-color: brown;
-    width: 100px;
-    height: 100px;
-}
