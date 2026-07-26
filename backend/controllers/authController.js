@@ -18,14 +18,28 @@ const signup = async (req, res) => {
     }
 
     // Check if user already exists
-    const existingUser = await User.findOne({ email });
+const existingUser = await User.findOne({ email });
 
-    if (existingUser) {
-      return res.status(400).json({
-        success: false,
-        message: "User already exists",
-      });
-    }
+console.log("EMAIL CHECK:", email);
+console.log("EXISTING USER:", existingUser);
+
+if (existingUser) {
+  return res.status(400).json({
+    success: false,
+    message: "User already exists",
+  });
+}
+
+ // const existingUser = await User.findOne({ email });
+
+    // if (existingUser) {
+    //   return res.status(400).json({
+    //     success: false,
+    //     message: "User already exists",
+    //   });
+    // }
+
+   
 
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
