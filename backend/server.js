@@ -18,7 +18,7 @@ app.use(
     origin: function (origin, callback) {
       if (
         !origin ||
-        origin === "http://localhost:5173" ||
+        origin.startsWith("http://localhost:") ||
         origin.endsWith(".vercel.app")
       ) {
         callback(null, true);
@@ -45,8 +45,5 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server Running On Port ${PORT}`);
 });
-
-
-
 
 
