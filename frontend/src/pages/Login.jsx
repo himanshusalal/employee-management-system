@@ -131,7 +131,7 @@ function Login() {
 
 
 
-        <form onSubmit={handleLogin} autoComplete="off">
+        <form onSubmit={handleLogin} >
 
 
           {/* Email */}
@@ -147,7 +147,7 @@ function Login() {
             value={formData.email}
 
             onChange={handleChange}
-              autoComplete="off"
+             
             required
 
           />
@@ -169,7 +169,7 @@ function Login() {
     placeholder="Password"
     value={formData.password}
     onChange={handleChange}
-     autoComplete="new-password"
+    
     required
   />
 
