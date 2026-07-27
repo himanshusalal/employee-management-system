@@ -147,20 +147,15 @@ function Login() {
             value={formData.email}
 
             onChange={handleChange}
-             
+             autoComplete="off"
             required
 
           />
 
 
-
-
           {/* Password with Eye Button */}
 
 
-          
-
-             
 <div className="password-box">
 
   <input
@@ -169,7 +164,7 @@ function Login() {
     placeholder="Password"
     value={formData.password}
     onChange={handleChange}
-    
+    autoComplete="off"
     required
   />
 

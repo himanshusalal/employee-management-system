@@ -64,7 +64,7 @@ function Signup() {
           Create your account to access the Employee Management System.
         </p>
 
-        <form onSubmit={handleSignup}>
+        <form onSubmit={handleSignup} autoComplete="off">
 
           <input
             type="text"
@@ -81,6 +81,7 @@ function Signup() {
             placeholder="📧 Email Address"
             value={formData.email}
             onChange={handleChange}
+              autoComplete="off"
          
             required
           />
