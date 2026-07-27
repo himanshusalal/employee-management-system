@@ -55,7 +55,7 @@ if (existingUser) {
     res.status(201).json({
       success: true,
       message: "Signup successful",
-      user,
+     
     });
   } catch (error) {
     console.log(error);
