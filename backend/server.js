@@ -13,67 +13,53 @@ connectDB();
 
 const app = express();
 
-
+// ======================
 // CORS Configuration
-const allowedOrigins = [
-  "http://localhost:5173",
-   "https://employee-management-system-uyph-7396izo4g.vercel.app"
-];
-
+// ======================
 app.use(
   cors({
     origin: function (origin, callback) {
+      console.log("Incoming Origin:", origin);
 
-      // Allow requests without origin (Postman, server-to-server)
+      // Allow Postman and server-to-server requests
       if (!origin) {
         return callback(null, true);
       }
 
-      // Allow localhost and deployed frontend
-      if (allowedOrigins.includes(origin)) {
+      // Allow localhost and all Vercel deployments
+      if (
+        origin.startsWith("http://localhost:") ||
+        origin.endsWith(".vercel.app")
+      ) {
         return callback(null, true);
       }
 
+      console.log("Blocked Origin:", origin);
       return callback(new Error("Not allowed by CORS"));
     },
 
     credentials: true,
 
-    methods: [
-      "GET",
-      "POST",
-      "PUT",
-      "DELETE",
-      "PATCH",
-      "OPTIONS"
-    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
 
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization"
-    ]
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
-
 
 // Handle preflight requests
 app.options("*", cors());
 
-
 // Middleware
 app.use(express.json());
-
 
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/employees", employeeRoutes);
 
-
 // Test Route
 app.get("/", (req, res) => {
   res.send("Employee Management API Running...");
 });
-
 
 // Server
 const PORT = process.env.PORT || 5000;
