@@ -13,37 +13,71 @@ connectDB();
 
 const app = express();
 
+
+// CORS Configuration
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://employee-management-system-uyph-ae0aamh2u.vercel.app"
+];
+
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (
-        !origin ||
-        origin.startsWith("http://localhost:") ||
-        origin.endsWith(".vercel.app")
-      ) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
+
+      // Allow requests without origin (Postman, server-to-server)
+      if (!origin) {
+        return callback(null, true);
       }
+
+      // Allow localhost and deployed frontend
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
     },
+
     credentials: true,
+
+    methods: [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE",
+      "PATCH",
+      "OPTIONS"
+    ],
+
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization"
+    ]
   })
 );
 
+
+// Handle preflight requests
+app.options("*", cors());
+
+
+// Middleware
 app.use(express.json());
+
 
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/employees", employeeRoutes);
 
+
+// Test Route
 app.get("/", (req, res) => {
   res.send("Employee Management API Running...");
 });
 
+
+// Server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server Running On Port ${PORT}`);
 });
-
-
