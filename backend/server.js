@@ -17,7 +17,7 @@ const app = express();
 // CORS Configuration
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://employee-management-system-uyph-ae0aamh2u.vercel.app"
+   "https://employee-management-system-uyph-7396izo4g.vercel.app"
 ];
 
 app.use(
